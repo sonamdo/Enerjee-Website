@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
-import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenses';
-import { setTextFilter } from './actions/filters';
-import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-import 'react-dates/lib/css/_datepicker.css';
+import 'bootstrap';
 
-const store = configureStore();
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faFacebookF, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
-);
+library.add(faTwitter, faFacebookF, faLinkedinIn)
 
-ReactDOM.render(jsx, document.getElementById('app'));
+import $ from 'jquery';
+import Main from "./components/Main.js"
+
+ReactDOM.render(<Main />, document.getElementById('app'));
